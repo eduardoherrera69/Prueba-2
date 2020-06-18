@@ -1,0 +1,92 @@
+package prueba2;
+
+/**
+* 
+* Eduardo Herrera V.
+* 17-06-2020
+* Clase Lavadora
+*/
+
+public class Lavadora extends Electrodomestico {
+
+ Se define el atributo de la clase lavadora como constante
+
+	int carga;
+	static final int CARGA = 5;
+
+	/**
+	* Constructor por defecto
+	*/
+	
+
+Aquí se definen los atributos que hereda de la clase padre
+
+		public Lavadora() {
+		super(PRECIO, PESO, COLOR, CONSUMO);
+		this.carga = CARGA;
+	}
+
+
+/**
+* Constructor parametros double precio, double peso
+*/
+
+La finalidad de este constructor es dar la posibilidad de inicializar el objeto los valores precio y peso, además de los valores heredados.
+
+	public Lavadora(double precio, double peso) {
+		super(precio, peso, COLOR, CONSUMO);
+		this.carga = CARGA;
+	}
+
+/**
+* Constructor con todos los parámetros
+*/
+
+La finalidad de este constructor es dar la posibilidad de inicializar el objeto con todos sus valores.
+
+
+
+	public Lavadora(double precio, double peso, String color, char consumo, int carga) {
+		super(PRECIO, PESO, COLOR, CONSUMO);
+		this.carga = carga;
+	}
+
+/**
+* Metodo get de carga
+*/
+
+Devuelve los valores indicados en las variables 
+
+
+	public int getCarga() {
+		return carga;
+	}
+
+	/**
+	* Metodo para obtener todos los parametros
+	*/
+	public void getTodo() {
+		System.out.println(precioBase);
+		System.out.println(peso);
+		System.out.println(color);
+		System.out.println(consumo);
+		System.out.println(carga);
+	}
+    
+/**
+* Metodo para calcular precio final
+*/
+	public double precioFinal(){
+
+//Invocamos el método precioFinal del método padre
+        double precioFinal=super.precioFinal();
+  
+//añadimos el código necesario
+        
+	if (carga>30){
+            precioFinal= precioBase + 50;
+        }
+        return precioFinal;
+    }
+}
+
